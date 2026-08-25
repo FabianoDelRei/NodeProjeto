@@ -1,10 +1,10 @@
 {
-  "name": "node-projeto",
+  "name": "projeto-no",
   "version": "1.0.0",
   "description": "Meu primeiro projeto Node no Jenkins",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Testes executados com sucesso!\" && exit 0"
+    "test": "echo Testes executados com sucesso!"
   },
   "keywords": [],
   "author": "",
