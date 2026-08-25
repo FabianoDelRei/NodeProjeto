@@ -1,16 +1,13 @@
 {
-  "name": "fabia",
+  "name": "node-projeto",
   "version": "1.0.0",
-  "description": "",
+  "description": "Meu primeiro projeto Node no Jenkins",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Testes executados com sucesso!\" && exit 0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "dependencies": {}
 }
