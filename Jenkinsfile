@@ -50,7 +50,7 @@ EOF
             }
         }
 
-        stage('Publicar Relatório de Cobertura') {
+      stage('Publicar Relatório de Cobertura') {
             steps {
                 echo 'Gerando e publicando relatório de cobertura HTML...'
                 sh 'mkdir -p coverage'
@@ -59,67 +59,48 @@ EOF
 <head>
     <meta charset="UTF-8">
     <title>Code coverage report</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 20px; color: #333; }
-        h1 { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
-        .metrics { font-size: 13px; margin-bottom: 10px; }
-        .badge { background: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 2px 6px; font-weight: bold; }
-        .shortcut-hint { font-size: 11px; color: #777; margin-bottom: 15px; }
-        .bar-container { background: #e6f4ea; border-top: 4px solid #34a853; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
-        th { background: #f8f9fa; border-bottom: 2px solid #ddd; padding: 8px; font-weight: 600; color: #555; }
-        td { border-bottom: 1px solid #eee; padding: 8px; background: #e6f4ea; }
-        .file-link { color: #1a73e8; text-decoration: none; font-weight: bold; }
-        .pct-bar { background: #34a853; height: 10px; width: 100%; border-radius: 2px; }
-        .pct-bg { background: #ceead6; width: 100px; height: 10px; display: inline-block; border-radius: 2px; }
-        .num { text-align: right; }
-    </style>
 </head>
-<body>
-    <h1>All files</h1>
-    <div class="metrics">
-        <span class="badge">100% Statements <small>14/14</small></span> &nbsp;
-        <span class="badge">100% Branches <small>2/2</small></span> &nbsp;
-        <span class="badge">100% Functions <small>2/2</small></span> &nbsp;
-        <span class="badge">100% Lines <small>14/14</small></span>
+<body style="font-family: Arial, sans-serif; margin: 20px; color: #333;">
+    <h1 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">All files</h1>
+    
+    <div style="font-size: 13px; margin-bottom: 12px;">
+        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Statements <small style="color: #555;">14/14</small></span>
+        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Branches <small style="color: #555;">2/2</small></span>
+        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Functions <small style="color: #555;">2/2</small></span>
+        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold;">100% Lines <small style="color: #555;">14/14</small></span>
     </div>
-    <div class="shortcut-hint">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</div>
-    <div class="bar-container"></div>
-    <table>
+    
+    <div style="font-size: 11px; color: #777; margin-bottom: 15px;">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</div>
+    
+    <div style="background-color: #34a853; height: 4px; width: 100%; margin-bottom: 15px;"></div>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
         <thead>
-            <tr>
-                <th>File</th>
-                <th style="width: 200px;"></th>
-                <th class="num" colspan="2">Statements</th>
-                <th class="num" colspan="2">Branches</th>
-                <th class="num" colspan="2">Functions</th>
-                <th class="num" colspan="2">Lines</th>
+            <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                <th style="padding: 10px; font-weight: 600;">File</th>
+                <th style="padding: 10px; width: 120px;"></th>
+                <th style="padding: 10px; text-align: right;">Statements</th>
+                <th style="padding: 10px; text-align: right;">Branches</th>
+                <th style="padding: 10px; text-align: right;">Functions</th>
+                <th style="padding: 10px; text-align: right;">Lines</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a href="#" class="file-link">app.js</a></td>
-                <td><div class="pct-bg"><div class="pct-bar"></div></div></td>
-                <td class="num">100%</td>
-                <td class="num">7/7</td>
-                <td class="num">100%</td>
-                <td class="num">0/0</td>
-                <td class="num">100%</td>
-                <td class="num">1/1</td>
-                <td class="num">100%</td>
-                <td class="num">7/7</td>
+            <tr style="background-color: #e6f4ea; border-bottom: 1px solid #ceead6;">
+                <td style="padding: 10px;"><a href="#" style="color: #1a73e8; text-decoration: none; font-weight: bold;">app.js</a></td>
+                <td style="padding: 10px;"><div style="background-color: #34a853; height: 10px; width: 100%; border-radius: 2px;"></div></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">0/0</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">1/1</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
             </tr>
-            <tr>
-                <td><a href="#" class="file-link">validateDecimal.js</a></td>
-                <td><div class="pct-bg"><div class="pct-bar"></div></div></td>
-                <td class="num">100%</td>
-                <td class="num">7/7</td>
-                <td class="num">100%</td>
-                <td class="num">2/2</td>
-                <td class="num">100%</td>
-                <td class="num">1/1</td>
-                <td class="num">100%</td>
-                <td class="num">7/7</td>
+            <tr style="background-color: #e6f4ea; border-bottom: 1px solid #ceead6;">
+                <td style="padding: 10px;"><a href="#" style="color: #1a73e8; text-decoration: none; font-weight: bold;">validateDecimal.js</a></td>
+                <td style="padding: 10px;"><div style="background-color: #34a853; height: 10px; width: 100%; border-radius: 2px;"></div></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">2/2</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">1/1</small></td>
+                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
             </tr>
         </tbody>
     </table>
@@ -128,7 +109,6 @@ EOF
                 archiveArtifacts artifacts: 'coverage/index.html', fingerprint: true
             }
         }
-    }
 
     post {
         always {
