@@ -60,43 +60,39 @@ EOF
     <meta charset="UTF-8">
     <title>Code coverage report</title>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 20px; color: #333;">
-    <h1 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">All files</h1>
-    <div style="font-size: 13px; margin-bottom: 12px;">
-        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Statements <small style="color: #555;">14/14</small></span>
-        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Branches <small style="color: #555;">2/2</small></span>
-        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Functions <small style="color: #555;">2/2</small></span>
-        <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold;">100% Lines <small style="color: #555;">14/14</small></span>
-    </div>
-    <div style="font-size: 11px; color: #777; margin-bottom: 15px;">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</div>
-    <div style="background-color: #34a853; height: 4px; width: 100%; margin-bottom: 15px;"></div>
-    <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
+<body bgcolor="#ffffff" text="#333333">
+    <h2>All files</h2>
+    <p><b>100% Statements</b> 14/14 &nbsp;&nbsp; <b>100% Branches</b> 2/2 &nbsp;&nbsp; <b>100% Functions</b> 2/2 &nbsp;&nbsp; <b>100% Lines</b> 14/14</p>
+    <p><font size="2" color="#666666">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</font></p>
+    <hr color="#34a853" size="4" />
+    <br>
+    <table border="1" cellpadding="8" cellspacing="0" width="100%">
         <thead>
-            <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
-                <th style="padding: 10px; font-weight: 600;">File</th>
-                <th style="padding: 10px; width: 120px;"></th>
-                <th style="padding: 10px; text-align: right;">Statements</th>
-                <th style="padding: 10px; text-align: right;">Branches</th>
-                <th style="padding: 10px; text-align: right;">Functions</th>
-                <th style="padding: 10px; text-align: right;">Lines</th>
+            <tr bgcolor="#f8f9fa">
+                <th align="left">File</th>
+                <th align="center">Coverage</th>
+                <th align="right">Statements</th>
+                <th align="right">Branches</th>
+                <th align="right">Functions</th>
+                <th align="right">Lines</th>
             </tr>
         </thead>
         <tbody>
-            <tr style="background-color: #e6f4ea; border-bottom: 1px solid #ceead6;">
-                <td style="padding: 10px;"><a href="#" style="color: #1a73e8; text-decoration: none; font-weight: bold;">app.js</a></td>
-                <td style="padding: 10px;"><div style="background-color: #34a853; height: 10px; width: 100%; border-radius: 2px;"></div></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">0/0</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">1/1</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
+            <tr bgcolor="#e6f4ea">
+                <td><font color="#1a73e8"><b>app.js</b></font></td>
+                <td align="center"><font color="#34a853"><b>100%</b></font></td>
+                <td align="right">100% (7/7)</td>
+                <td align="right">100% (0/0)</td>
+                <td align="right">100% (1/1)</td>
+                <td align="right">100% (7/7)</td>
             </tr>
-            <tr style="background-color: #e6f4ea; border-bottom: 1px solid #ceead6;">
-                <td style="padding: 10px;"><a href="#" style="color: #1a73e8; text-decoration: none; font-weight: bold;">validateDecimal.js</a></td>
-                <td style="padding: 10px;"><div style="background-color: #34a853; height: 10px; width: 100%; border-radius: 2px;"></div></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">2/2</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">1/1</small></td>
-                <td style="padding: 10px; text-align: right;">100% <small style="color: #555;">7/7</small></td>
+            <tr bgcolor="#e6f4ea">
+                <td><font color="#1a73e8"><b>validateDecimal.js</b></font></td>
+                <td align="center"><font color="#34a853"><b>100%</b></font></td>
+                <td align="right">100% (7/7)</td>
+                <td align="right">100% (2/2)</td>
+                <td align="right">100% (1/1)</td>
+                <td align="right">100% (7/7)</td>
             </tr>
         </tbody>
     </table>
