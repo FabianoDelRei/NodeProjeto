@@ -9,8 +9,7 @@ pipeline {
         stage('Checkout (Git)') {
             steps {
                 echo 'Baixando o projeto do GitHub...'
-                git branch: 'main',
-                    url: 'https://github.com/FabianoDelRei/NodeProjeto.git'
+                checkout scm
             }
         }
 
