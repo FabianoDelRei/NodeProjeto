@@ -55,9 +55,10 @@ pipeline {
             }
         }
 
-        stage('Relatório JUnit') {
+       stage('Relatório JUnit') {
             steps {
                 echo 'Gerando relatório JUnit...'
+
                 sh '''
                     mkdir -p reports
 
@@ -75,7 +76,8 @@ pipeline {
                 '''
 
                 junit allowEmptyResults: true,
-                      testResults: 'reports/junit.xml'
+                      testResults: 'reports/*.xml',
+                      keepLongStdio: true
             }
         }
 
