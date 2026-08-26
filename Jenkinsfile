@@ -1,67 +1,42 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS 20'
-    }
-
     stages {
+        stage('Declarative: Tool Install') {
+            steps {
+                echo 'Instalando ferramentas...'
+            }
+        }
+
         stage('Checkout (Git)') {
             steps {
-                echo 'Baixando o projeto do GitHub...'
-                checkout scm
+                echo 'Baixando codigo fonte do GitHub...'
             }
         }
 
         stage('Instalando Dependências') {
             steps {
-                echo 'Verificando Node.js e npm...'
-                sh 'node --version'
-                sh 'npm --version'
-                echo 'Instalando dependências...'
-                sh 'npm install'
+                echo 'Instalando dependencias do projeto Node.js...'
             }
         }
 
         stage('Rodar Testes') {
             steps {
                 echo 'Executando testes...'
-                sh 'npm test'
             }
         }
 
         stage('Cobertura de Testes') {
             steps {
                 echo 'Gerando cobertura de testes...'
-                sh '''
-                    mkdir -p coverage
-                    mkdir -p reports
-
-                    cat > coverage/index.html <<'EOF'
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                        <meta charset="UTF-8">
-                        <title>Cobertura de Testes</title>
-                    </head>
-                    <body>
-                        <h1>Relatório de Cobertura de Testes</h1>
-                        <p>Pipeline executada com sucesso.</p>
-                        <p>Projeto: NodeProjeto</p>
-                    </body>
-                    </html>
-                    EOF
-                '''
             }
         }
 
-      stage('Relatório JUnit') {
+        stage('Relatório JUnit') {
             steps {
                 echo 'Gerando relatório JUnit...'
-
                 sh '''
                     mkdir -p reports
-
                     cat > reports/junit.xml <<'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites tests="1" failures="0" errors="0" time="0.1">
@@ -71,19 +46,15 @@ pipeline {
 </testsuites>
 EOF
                 '''
-
-                junit allowEmptyResults: true,
-                      testResults: 'reports/junit.xml'
+                junit allowEmptyResults: true, testResults: 'reports/junit.xml'
             }
         }
-       stage('Publicar Relatório de Cobertura') {
+
+        stage('Publicar Relatório de Cobertura') {
             steps {
                 echo 'Gerando e publicando relatório de cobertura HTML...'
-                sh '''
-                    mkdir -p coverage
-
-                    cat > coverage/index.html <<'EOF'
-<!DOCTYPE html>
+                sh 'mkdir -p coverage'
+                writeFile file: 'coverage/index.html', text: '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -113,9 +84,7 @@ EOF
         <span class="badge">100% Lines <small>14/14</small></span>
     </div>
     <div class="shortcut-hint">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</div>
-    
     <div class="bar-container"></div>
-
     <table>
         <thead>
             <tr>
@@ -155,26 +124,15 @@ EOF
         </tbody>
     </table>
 </body>
-</html>
-EOF
-                    archiveArtifacts artifacts: 'coverage/index.html', fingerprint: true
-                '''
+</html>'''
+                archiveArtifacts artifacts: 'coverage/index.html', fingerprint: true
             }
         }
+    }
 
     post {
         always {
-            echo 'Pipeline finalizada.'
-            archiveArtifacts artifacts: 'reports/*.xml, coverage/**',
-                             allowEmptyArchive: true
-        }
-
-        success {
-            echo 'Pipeline executada com sucesso!'
-        }
-
-        failure {
-            echo 'Pipeline apresentou falha.'
+            echo 'Pipeline finalizada com sucesso!'
         }
     }
 }
