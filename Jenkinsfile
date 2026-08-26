@@ -2,15 +2,13 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'
+        nodejs 'NodeJS 20'
     }
 
     stages {
-
         stage('Checkout (Git)') {
             steps {
                 echo 'Baixando o projeto do GitHub...'
-
                 git branch: 'main',
                     url: 'https://github.com/FabianoDelRei/NodeProjeto.git'
             }
@@ -19,12 +17,9 @@ pipeline {
         stage('Instalando Dependências') {
             steps {
                 echo 'Verificando Node.js e npm...'
-
                 sh 'node --version'
                 sh 'npm --version'
-
                 echo 'Instalando dependências...'
-
                 sh 'npm install'
             }
         }
@@ -32,7 +27,6 @@ pipeline {
         stage('Rodar Testes') {
             steps {
                 echo 'Executando testes...'
-
                 sh 'npm test'
             }
         }
@@ -40,7 +34,6 @@ pipeline {
         stage('Cobertura de Testes') {
             steps {
                 echo 'Gerando cobertura de testes...'
-
                 sh '''
                     mkdir -p coverage
                     mkdir -p reports
@@ -66,7 +59,6 @@ pipeline {
         stage('Relatório JUnit') {
             steps {
                 echo 'Gerando relatório JUnit...'
-
                 sh '''
                     mkdir -p reports
 
@@ -91,7 +83,6 @@ pipeline {
         stage('Publicar Relatório de Cobertura') {
             steps {
                 echo 'Publicando relatório de cobertura...'
-
                 publishHTML([
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
@@ -106,10 +97,8 @@ pipeline {
     }
 
     post {
-
         always {
             echo 'Pipeline finalizada.'
-
             archiveArtifacts artifacts: 'reports/*.xml, coverage/**',
                              allowEmptyArchive: true
         }
