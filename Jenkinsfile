@@ -50,7 +50,7 @@ EOF
             }
         }
 
-      stage('Publicar Relatório de Cobertura') {
+        stage('Publicar Relatório de Cobertura') {
             steps {
                 echo 'Gerando e publicando relatório de cobertura HTML...'
                 sh 'mkdir -p coverage'
@@ -62,18 +62,14 @@ EOF
 </head>
 <body style="font-family: Arial, sans-serif; margin: 20px; color: #333;">
     <h1 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">All files</h1>
-    
     <div style="font-size: 13px; margin-bottom: 12px;">
         <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Statements <small style="color: #555;">14/14</small></span>
         <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Branches <small style="color: #555;">2/2</small></span>
         <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold; margin-right: 6px;">100% Functions <small style="color: #555;">2/2</small></span>
         <span style="background-color: #e6f4ea; border: 1px solid #ceead6; border-radius: 4px; padding: 3px 8px; font-weight: bold;">100% Lines <small style="color: #555;">14/14</small></span>
     </div>
-    
     <div style="font-size: 11px; color: #777; margin-bottom: 15px;">Press <i>n</i> or <i>j</i> to go to the next uncovered block, <i>b</i>, <i>p</i> or <i>k</i> for the previous block.</div>
-    
     <div style="background-color: #34a853; height: 4px; width: 100%; margin-bottom: 15px;"></div>
-
     <table style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: left;">
         <thead>
             <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
@@ -109,6 +105,7 @@ EOF
                 archiveArtifacts artifacts: 'coverage/index.html', fingerprint: true
             }
         }
+    }
 
     post {
         always {
